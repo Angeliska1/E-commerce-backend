@@ -9,3 +9,5 @@ if (!ResendApiKey) {
 const resend = new Resend(ResendApiKey);
 
 export default resend;
+
+//webhooks.
