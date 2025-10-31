@@ -51,3 +51,6 @@ const errorHandler = (err: Error, _: Request, res: Response): void => {
 };
 
 export { notFound, errorHandler };
+
+//study web hooks and web sockets
+

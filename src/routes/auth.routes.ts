@@ -10,15 +10,28 @@ import {
   verifyResetOTP,
 } from "../controllers/auth.controller.ts";
 
+import {
+  createUserSchema,
+  loginSchema,
+  updateUserSchema,
+  verifyResetOTPSchema,
+  forgotPasswordSchema,
+  resetPasswordSchema,
+  verifyEmailSchema,
+} from "../validation/userValidation.ts";
+
+import { validateRequest } from "../middleware/validateRequest.ts";
+
 const authRouter = Router();
 
-authRouter.post("/create-user", createUser);
-authRouter.post("/login", loginUser);
+authRouter.post("/create-user", validateRequest(createUserSchema), createUser);
+authRouter.post("/login", validateRequest(loginSchema), loginUser);
+authRouter.post("/update-user", validateRequest(updateUserSchema))
 authRouter.post("/logout", logoutUser);
 authRouter.get("/refresh", refreshAccessToken);
-authRouter.post("/verify-email", verifyUserEmail);
-authRouter.post("/forgot-password", forgotPassword);
-authRouter.post("/verify-reset-otp", verifyResetOTP);
-authRouter.post("/reset-password", resetPassword);
+authRouter.post("/verify-email", validateRequest(verifyEmailSchema), verifyUserEmail);
+authRouter.post("/forgot-password", validateRequest(forgotPasswordSchema), forgotPassword);
+authRouter.post("/verify-reset-otp", validateRequest(verifyResetOTPSchema), verifyResetOTP);
+authRouter.post("/reset-password", validateRequest(resetPasswordSchema), resetPassword);
 
 export default authRouter;

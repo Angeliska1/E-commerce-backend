@@ -158,6 +158,9 @@ export const forgotPassword = async (
     //create verification code
     const uniqueCode = generateVerificationCode();
 
+    // LOG IT (for local testing)
+    console.log("Password reset OTP for", user.email, "=>", uniqueCode);
+
     await VerificationCode.create({
       code: uniqueCode,
       userId: user._id,
@@ -187,13 +190,13 @@ export const forgotPassword = async (
   }
 };
 
-export const verifyResetOTP = async (
-  req: Request<{}, {}, { code: string }, { email: string }>,
+ export const verifyResetOTP = async (
+  req: Request<{}, {}, { email: string; code: string }, {}>,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    const { email } = req.query;
+    const { email } = req.body;
     const { code } = req.body;
 
     // Validate input
@@ -217,6 +220,7 @@ export const verifyResetOTP = async (
       type: VerificationCodeType.RESET_PASSWORD,
     });
 
+
     if (!verificationCode) {
       res.status(400);
       throw new Error("Invalid or expired code");
@@ -228,6 +232,7 @@ export const verifyResetOTP = async (
       res.status(401);
       throw new Error("Code has expired. Please request a new one.");
     }
+
 
     // OTP is valid!
     // Return success - frontend will now show the "new password" form
@@ -249,19 +254,14 @@ export const verifyResetOTP = async (
  * After OTP is verified, user can set new password
  * Uses the verificationId from the previous step
  */
+
 export const resetPassword = async (
-  req: Request<
-    {},
-    {},
-    { newPassword: string },
-    { email: string; code: string }
-  >,
+  req: Request<{}, {}, { email: string; code: string; newPassword: string }>,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    const { email, code } = req.query;
-    const { newPassword } = req.body;
+    const { email, code, newPassword } = req.body;
 
     // Validate input
     if (!email || !code || !newPassword) {
@@ -277,13 +277,12 @@ export const resetPassword = async (
 
     // Find user
     const user = await User.findOne({ email: email.toLowerCase() });
-
     if (!user) {
       res.status(400);
-      throw new Error("Invalid request, User not found");
+      throw new Error("Invalid request, user not found");
     }
 
-    // Find and verify the code one more time
+    // Find and verify the code
     const verificationCode = await VerificationCode.findOne({
       code: code.trim(),
       userId: user._id,
@@ -295,21 +294,19 @@ export const resetPassword = async (
       throw new Error("Invalid or expired code");
     }
 
-    // Check if code has expired
+    // Check expiration
     if (new Date(verificationCode.expiresAt) < new Date()) {
       await deleteVerificationCodeFromDB(verificationCode._id.toString());
       res.status(401);
       throw new Error("Code has expired. Please request a new one.");
     }
 
-    // Update password (assuming your User model hashes it with pre-save hook)
+    // Update password
     user.password = newPassword;
     await user.save();
 
-    // Delete the verification code (one-time use)
+    // Delete code after use
     await deleteVerificationCodeFromDB(verificationCode._id.toString());
-
-    // Optional: Delete all other reset codes for this user
     await VerificationCode.deleteMany({
       userId: user._id,
       type: VerificationCodeType.RESET_PASSWORD,
@@ -356,6 +353,7 @@ export const loginUser = async (
     next(error);
   }
 };
+
 
 export const logoutUser = async (
   req: Request,
@@ -452,3 +450,17 @@ export const refreshAccessToken = async (
     next(error);
   }
 };
+
+export const getAllUsers = async (
+  req: Request,
+  res: Response,    
+  next: NextFunction
+) => {
+  try {
+    const users = await User.find().select("-password"); // Exclude passwords
+    res.status(200).json({ data: users });
+  } catch (error) {
+    next(error);
+  }
+};
+

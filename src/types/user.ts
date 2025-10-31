@@ -8,6 +8,7 @@ export interface IUser extends Document {
   email: string;
   password: string;
   role: "customer" | "admin";
+  isAdmin?: boolean;
   verified: boolean;
   phoneNumber?: string;
   address?: {

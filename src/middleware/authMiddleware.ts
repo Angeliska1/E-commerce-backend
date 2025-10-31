@@ -28,3 +28,15 @@ export const protect = async (
     throw new Error("Not authorized, no token");
   }
 };
+
+export const adminOnly = (req: Request, res: Response, next: NextFunction) => {
+  if (req.user && req.user.role === "admin") {
+    next();
+  } else {
+    res.status(403);
+    throw new Error("Not authorized as an admin");
+  }
+};
+
+//do paginate and joi validation later
+
