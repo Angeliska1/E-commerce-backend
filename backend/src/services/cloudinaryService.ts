@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 import cloudinary from "../config/cloudinaryConfig.ts";
-=======
-import cloudinary from "../config/cloudinaryConfig.js";
->>>>>>> 2df939cff582ff299d0a819289ba8b43fad71289
+// import cloudinary from "../config/cloudinaryConfig.js";
 import fs from "fs";
 import type { IProductImage } from "../types/product.ts";
 import type { ICategoryImage } from "../types/category.ts";
