@@ -7,7 +7,7 @@ import type {
   IPaymentInfo,
   IOrderTimeline,
   OrderStatus,
-} from "../types/order.ts";
+} from "../types/order.js";
 
 // Order Item sub-schema
 const orderItemSchema = new Schema<IOrderItem>(

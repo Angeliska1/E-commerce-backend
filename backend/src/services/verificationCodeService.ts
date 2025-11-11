@@ -1,4 +1,4 @@
-import { VerificationCode } from "../models/verificationCode.model.ts";
+import { VerificationCode } from "../models/verificationCode.model.js";
 
 export const deleteVerificationCodeFromDB = async (
   codeId: string

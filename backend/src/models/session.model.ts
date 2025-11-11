@@ -1,6 +1,6 @@
 import mongoose, { SchemaTypes } from "mongoose";
-import { thirtyDaysFromNow } from "../utils/timeUtils.ts";
-import type { ISession } from "../types/session.ts";
+import { thirtyDaysFromNow } from "../utils/timeUtils.js";
+import type { ISession } from "../types/session.js";
 
 const sessionSchema = new mongoose.Schema<ISession>({
   userId: {

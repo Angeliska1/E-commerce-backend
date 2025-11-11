@@ -1,27 +1,27 @@
 import type { NextFunction, Request, Response } from "express";
-import User from "../models/user.model.ts";
-import type { IUser } from "../types/user.ts";
+import User from "../models/user.model.js";
+import type { IUser } from "../types/user.js";
 import {
   generateAccessToken,
   generateRefreshToken,
-} from "../utils/generateToken.ts";
-import Session from "../models/session.model.ts";
-import { VerificationCode } from "../models/verificationCode.model.ts";
+} from "../utils/generateToken.js";
+import Session from "../models/session.model.js";
+import { VerificationCode } from "../models/verificationCode.model.js";
 import {
   decodeAccessTokenPayload,
   clearAuthCookies,
   decodeRefreshTokenPayload,
-} from "../utils/jwtUtils.ts";
-import { deleteSessionFromDB } from "../services/sesionService.ts";
+} from "../utils/jwtUtils.js";
+import { deleteSessionFromDB } from "../services/sesionService.js";
 import {
   getPasswordResetTemplate,
   getVerifyEmailTemplate,
-} from "../utils/emailTemplates.ts";
-import { generateVerificationCode } from "../utils/generateVerificationCode.ts";
-import { deleteVerificationCodeFromDB } from "../services/verificationCodeService.ts";
-import { VerificationCodeType } from "../types/verificationCode.ts";
-import { oneDayFromNow, tenMinutesFromNow } from "../utils/timeUtils.ts";
-import { sendMail } from "../utils/sendMail.ts";
+} from "../utils/emailTemplates.js";
+import { generateVerificationCode } from "../utils/generateVerificationCode.js";
+import { deleteVerificationCodeFromDB } from "../services/verificationCodeService.js";
+import { VerificationCodeType } from "../types/verificationCode.js";
+import { oneDayFromNow, tenMinutesFromNow } from "../utils/timeUtils.js";
+import { sendMail } from "../utils/sendMail.js";
 
 export const createUser = async (
   req: Request<{}, {}, IUser, {}>,

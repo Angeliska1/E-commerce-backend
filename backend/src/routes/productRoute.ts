@@ -1,9 +1,9 @@
 import { Router } from "express";
-import ProductController from "../controllers/productController.ts";
-import upload from "../middleware/multer.ts";
-import paginate from "../middleware/paginate.ts";
-import Product from "../models/product.model.ts";
-// import { adminOnly } from "../middleware/authMiddleware.ts";
+import ProductController from "../controllers/productController.js";
+import upload from "../middleware/multer.js";
+import paginate from "../middleware/paginate.js";
+import Product from "../models/product.model.js";
+// import { adminOnly } from "../middleware/authMiddleware.js";
 
 const productRouter = Router();
 

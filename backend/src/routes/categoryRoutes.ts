@@ -8,10 +8,10 @@ import {
   toggleCategoryStatus,
   deleteCategory,
   deleteCategoryImage,
-} from "../controllers/categoryController.ts";
-import upload from "../middleware/multer.ts";
-import { protect } from "../middleware/authMiddleware.ts";
-// import { adminOnly } from "../middleware/authMiddleware.ts";
+} from "../controllers/categoryController.js";
+import upload from "../middleware/multer.js";
+import { protect } from "../middleware/authMiddleware.js";
+// import { adminOnly } from "../middleware/authMiddleware.js";
 
 const categoryRouter = Router();
 

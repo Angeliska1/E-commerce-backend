@@ -1,8 +1,8 @@
 import type { Request, Response, NextFunction } from "express";
 import mongoose from "mongoose";
-import Order from "../models/orderModel.ts";
-import Cart from "../models/cartModel.ts";
-import Product from "../models/product.model.ts";
+import Order from "../models/orderModel.js";
+import Cart from "../models/cartModel.js";
+import Product from "../models/product.model.js";
 
 export class OrderController {
   /**

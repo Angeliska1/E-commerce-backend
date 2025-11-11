@@ -1,7 +1,7 @@
 import { Router } from "express";
-import PaymentController from "../controllers/paymentController.ts";
-import { protect } from "../middleware/authMiddleware.ts";
-import { adminOnly } from "../middleware/authMiddleware.ts";
+import PaymentController from "../controllers/paymentController.js";
+import { protect } from "../middleware/authMiddleware.js";
+import { adminOnly } from "../middleware/authMiddleware.js";
 
 const paymentRouter = Router();
 

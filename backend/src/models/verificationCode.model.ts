@@ -1,6 +1,6 @@
 import mongoose, { SchemaTypes } from "mongoose";
-import { VerificationCodeType } from "../types/verificationCode.ts";
-import type { IVerificationCode } from "../types/verificationCode.ts";
+import { VerificationCodeType } from "../types/verificationCode.js";
+import type { IVerificationCode } from "../types/verificationCode.js";
 
 const VerificationCodeSchema = new mongoose.Schema<IVerificationCode>(
   {

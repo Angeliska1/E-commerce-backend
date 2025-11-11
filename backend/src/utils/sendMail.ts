@@ -1,4 +1,4 @@
-import resend from "../config/resendConfig.ts";
+import resend from "../config/resendConfig.js";
 
 type ResendParams = {
   to: string;

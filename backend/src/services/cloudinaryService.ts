@@ -1,8 +1,8 @@
-import cloudinary from "../config/cloudinaryConfig.ts";
+import cloudinary from "../config/cloudinaryConfig.js";
 // import cloudinary from "../config/cloudinaryConfig.js";
 import fs from "fs";
-import type { IProductImage } from "../types/product.ts";
-import type { ICategoryImage } from "../types/category.ts";
+import type { IProductImage } from "../types/product.js";
+import type { ICategoryImage } from "../types/category.js";
 
 class CloudinaryService {
   // Delete local file helper

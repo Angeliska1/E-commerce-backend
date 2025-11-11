@@ -1,6 +1,6 @@
-import User from "../models/user.model.ts";
+import User from "../models/user.model.js";
 import type { NextFunction, Request, Response } from "express";
-import { decodeAccessTokenPayload } from "../utils/jwtUtils.ts";
+import { decodeAccessTokenPayload } from "../utils/jwtUtils.js";
 
 export const protect = async (
   req: Request,

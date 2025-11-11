@@ -1,4 +1,4 @@
-import type { IUser } from "../user.ts";
+import type { IUser } from "../user.js";
 import mongoose from "mongoose";
 
 declare global {

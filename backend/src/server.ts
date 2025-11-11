@@ -1,15 +1,15 @@
 import express, { type NextFunction, type Response } from "express";
 import "dotenv/config";
 import cookieParser from "cookie-parser";
-import { connectDatabase } from "./config/databaseConn.ts";
-import { errorHandler, notFound } from "./middleware/errorMiddleware.ts";
-import { protect } from "./middleware/authMiddleware.ts";
-import authRouter from "./routes/auth.routes.ts";
-import userRouter from "./routes/user.routes.ts";
-import productRouter from "./routes/productRoute.ts";
-import categoryRouter from "./routes/categoryRoutes.ts";
-import cartRouter from "./routes/cartRoute.ts";
-import orderRouter from "./routes/orderRoute.ts";
+import { connectDatabase } from "./config/databaseConn.js";
+import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
+import { protect } from "./middleware/authMiddleware.js";
+import authRouter from "./routes/auth.routes.js";
+import userRouter from "./routes/user.routes.js";
+import productRouter from "./routes/productRoute.js";
+import categoryRouter from "./routes/categoryRoutes.js";
+import cartRouter from "./routes/cartRoute.js";
+import orderRouter from "./routes/orderRoute.js";
 
 const app = express();
 const PORT = 5000;
