@@ -4,8 +4,6 @@
     // File Layout
     "rootDir": "./src",
 
-    "outDir": "backend/dist",
-
     "outDir": "./dist",
 
     // Environment Settings
