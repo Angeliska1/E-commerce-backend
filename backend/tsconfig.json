@@ -24,7 +24,7 @@
     // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
-    "allowImportingTsExtensions": true,
+    // "allowImportingTsExtensions": true,
     "noEmit": false,
     // "emitDeclarationOnly": true,
     // Style Options
@@ -38,10 +38,11 @@
     // Recommended Options
     "strict": true,
     "jsx": "react-jsx",
-    "verbatimModuleSyntax": true,
+    "verbatimModuleSyntax": false,
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
+    "moduleResolution": "node",
     "skipLibCheck": true
   },
   "include": ["src"],
