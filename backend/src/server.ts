@@ -11,6 +11,7 @@ import categoryRouter from "./routes/categoryRoutes.js";
 import cartRouter from "./routes/cartRoute.js";
 import orderRouter from "./routes/orderRoute.js";
 import paymentRouter from "./routes/paymentRoutes.js";
+import cors from "cors";
 
 const app = express();
 const PORT = 5000;
@@ -18,6 +19,9 @@ const PORT = 5000;
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(cookieParser());
+app.use(cors());
+
+// Define routes
 
 app.use("/api/auth", authRouter);
 app.use("/api/user", protect, userRouter);
