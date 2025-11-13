@@ -10,6 +10,7 @@ import productRouter from "./routes/productRoute.js";
 import categoryRouter from "./routes/categoryRoutes.js";
 import cartRouter from "./routes/cartRoute.js";
 import orderRouter from "./routes/orderRoute.js";
+import paymentRouter from "./routes/paymentRoutes.js";
 
 const app = express();
 const PORT = 5000;
@@ -24,6 +25,7 @@ app.use("/api/product", productRouter)
 app.use("/api/category", categoryRouter);
 app.use("/api/cart", cartRouter);
 app.use("/api/orders", protect, orderRouter);
+app.use("/api/payments", paymentRouter);
 
 app.get("/", (_, res: Response, next: NextFunction) => {
   res.send("Hello World!");
