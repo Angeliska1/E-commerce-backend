@@ -9,7 +9,7 @@ const Home: React.FC = () => {
     const fetchProducts = async () => {
       try {
         const res = await fetch("https://e-commerce-backend-19-fjak.onrender.com/api/product");
-        if (!res.ok) throw new Error("Failed to fetch products");
+        if (!res.ok) throw new Error(`Server error: ${res.status}`);
         const data: Product[] = await res.json();
         setProducts(data); // ✅ Update state
       } catch (error) {
@@ -23,6 +23,12 @@ const Home: React.FC = () => {
   return (
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-6">Products</h1>
+
+      
+      {products.length === 0 ? (
+        <p>Loading products... (or none found)</p>
+      ) : (
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {products.map((product) => (
           <div key={product.id} className="border rounded p-4 shadow hover:shadow-lg">
@@ -37,6 +43,7 @@ const Home: React.FC = () => {
           </div>
         ))}
       </div>
+      )}
     </div>
   );
 };
