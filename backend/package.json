@@ -9,7 +9,6 @@
     "build": "tsc --build",
     "start": "node dist/server.js",
     "server": "nodemon ./src/server.ts",
-    "postinstall": "npm run build",
     "dev": "tsx watch src/server.ts"
   },
   "keywords": [],
