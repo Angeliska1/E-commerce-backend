@@ -1,6 +1,6 @@
 import type { Request, Response, NextFunction } from "express";
-import Cart from "../models/cartModel.js";
-import Product from "../models/product.model.js";
+import Cart from "../models/cartModel";
+import Product from "../models/product.model";
 
 export class CartController {
   /**

@@ -1,7 +1,7 @@
 import mongoose, { Model, Schema } from "mongoose";
 
-import type { IInventory, IProduct, IProductImage } from "../types/product.js";
-import { generateSlug } from "../utils/generateSlug.js";
+import type { IInventory, IProduct, IProductImage } from "../types/product";
+import { generateSlug } from "../utils/generateSlug";
 
 // Image sub-schema
 const productImageSchema = new Schema<IProductImage>(

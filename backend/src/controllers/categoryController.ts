@@ -1,8 +1,8 @@
 import type { Request, Response, NextFunction } from "express";
 import { Types } from "mongoose";
-import Category from "../models/categoryModel.js";
-import CloudinaryService from "../services/cloudinaryService.js";
-import type { ICategory } from "../types/category.js";
+import Category from "../models/categoryModel";
+import CloudinaryService from "../services/cloudinaryService";
+import type { ICategory } from "../types/category";
 
 /**
  * CREATE CATEGORY (Main Category or Subcategory)

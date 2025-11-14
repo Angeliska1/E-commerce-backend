@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { getUserProfile, getAllUsers } from "../controllers/user.controller.js";
-import { protect, adminOnly } from "../middleware/authMiddleware.js";
+import { getUserProfile, getAllUsers } from "../controllers/user.controller";
+import { protect, adminOnly } from "../middleware/authMiddleware";
 
 const userRouter = Router();
 

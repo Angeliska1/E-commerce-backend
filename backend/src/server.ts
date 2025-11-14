@@ -1,16 +1,16 @@
 import express, { type NextFunction, type Response } from "express";
 import "dotenv/config";
 import cookieParser from "cookie-parser";
-import { connectDatabase } from "./config/databaseConn.js";
-import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
-import { protect } from "./middleware/authMiddleware.js";
-import authRouter from "./routes/auth.routes.js";
-import userRouter from "./routes/user.routes.js";
-import productRouter from "./routes/productRoute.js";
-import categoryRouter from "./routes/categoryRoutes.js";
-import cartRouter from "./routes/cartRoute.js";
-import orderRouter from "./routes/orderRoute.js";
-import paymentRouter from "./routes/paymentRoutes.js";
+import connectDatabase from "./config/databaseConn";
+import { errorHandler, notFound } from "./middleware/errorMiddleware";
+import { protect } from "./middleware/authMiddleware";
+import authRouter from "./routes/auth.routes";
+import userRouter from "./routes/user.routes";
+import productRouter from "./routes/productRoute";
+import categoryRouter from "./routes/categoryRoutes";
+import cartRouter from "./routes/cartRoute";
+import orderRouter from "./routes/orderRoute";
+import paymentRouter from "./routes/paymentRoutes";
 import cors from "cors";
 
 const app = express();

@@ -1,4 +1,4 @@
-import Session from "../models/session.model.js";
+import Session from "../models/session.model";
 
 export const deleteSessionFromDB = async (sessionId: string): Promise<void> => {
   const deletedSession = await Session.findByIdAndDelete(sessionId);

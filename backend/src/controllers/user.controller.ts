@@ -1,8 +1,8 @@
 import type { RequestHandler } from "express";
 import type { Request, Response } from "express";
-import User from "../models/user.model.js";
+import User from "../models/user.model";
 
-import { paginationSchema } from "../validation/pagination.validation.js";
+import { paginationSchema } from "../validation/pagination.validation";
 
 export const getUserProfile: RequestHandler = async (req, res, next) => {
   try {

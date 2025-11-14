@@ -8,7 +8,7 @@ import {
   resetPassword,
   verifyUserEmail,
   verifyResetOTP,
-} from "../controllers/auth.controller.js";
+} from "../controllers/auth.controller";
 
 import {
   createUserSchema,
@@ -18,9 +18,9 @@ import {
   forgotPasswordSchema,
   resetPasswordSchema,
   verifyEmailSchema,
-} from "../validation/userValidation.js";
+} from "../validation/userValidation";
 
-import { validateRequest } from "../middleware/validateRequest.js";
+import { validateRequest } from "../middleware/validateRequest";
 
 const authRouter = Router();
 

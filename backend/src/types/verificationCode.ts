@@ -5,6 +5,7 @@ export enum VerificationCodeType {
   EMAIL_VERIFICATION = "emailVerification",
   RESET_PASSWORD = "resetPassword",
 }
+export type VerificationCodeTypeValue = typeof VerificationCodeType[keyof typeof VerificationCodeType];
 
 // 2. Define the interface for the document data
 export interface IVerificationCode extends Document {

@@ -1,12 +1,12 @@
 import type { Request, Response, NextFunction } from "express";
-import Product from "../models/product.model.js";
+import Product from "../models/product.model";
 import type {
   IProduct,
   IProductFormData,
   IProductImage,
-} from "../types/product.js";
+} from "../types/product";
 import { Types } from "mongoose";
-import CloudinaryService from "../services/cloudinaryService.js";
+import CloudinaryService from "../services/cloudinaryService";
 
 export class ProductController {
   static async getAllProducts(

@@ -19,3 +19,5 @@ export const connectDatabase = async () => {
     throw error;
   }
 };
+
+export default connectDatabase;

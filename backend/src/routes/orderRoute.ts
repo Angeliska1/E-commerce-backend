@@ -1,9 +1,9 @@
 import { Router } from "express";
-import OrderController from "../controllers/orderController.js";
-import { protect } from "../middleware/authMiddleware.js";
-import { adminOnly } from "../middleware/authMiddleware.js";
-import paginate from "../middleware/paginate.js";
-import Order from "../models/orderModel.js";
+import OrderController from "../controllers/orderController";
+import { protect } from "../middleware/authMiddleware";
+import { adminOnly } from "../middleware/authMiddleware";
+import paginate from "../middleware/paginate";
+import Order from "../models/orderModel";
 
 const orderRouter = Router();
 

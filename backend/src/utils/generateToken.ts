@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import mongoose from "mongoose";
 import type { Response } from "express";
-import { MS_IN_MINUTE, MS_IN_DAY } from "./timeUtils.js";
+import { MS_IN_MINUTE, MS_IN_DAY } from "./timeUtils";
 
 const generateAccessToken = (
   res: Response,

@@ -1,8 +1,8 @@
 import { Router } from "express";
-import CartController from "../controllers/cartController.js";
-import { protect } from "../middleware/authMiddleware.js";
-import { adminOnly } from "../middleware/authMiddleware.js";
-import Cart from "../models/cartModel.js";
+import CartController from "../controllers/cartController";
+import { protect } from "../middleware/authMiddleware";
+import { adminOnly } from "../middleware/authMiddleware";
+import Cart from "../models/cartModel";
 
 const cartRouter = Router();
 

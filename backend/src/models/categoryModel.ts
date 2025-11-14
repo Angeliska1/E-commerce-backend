@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
-import type { ICategory } from "../types/category.js";
-import { generateSlug } from "../utils/generateSlug.js";
+import type { ICategory } from "../types/category";
+import { generateSlug } from "../utils/generateSlug";
 
 const categorySchema = new Schema<ICategory>(
   {

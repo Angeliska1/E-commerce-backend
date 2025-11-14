@@ -1,6 +1,6 @@
 import axios from "axios";
 import crypto from "crypto";
-import { nairaToKobo } from "../utils/nairaToKobo.js";
+import { nairaToKobo } from "../utils/nairaToKobo";
 
 // Paystack API Configuration
 const PAYSTACK_SECRET_KEY = process.env.PAYSTACK_SECRET_KEY as string;
